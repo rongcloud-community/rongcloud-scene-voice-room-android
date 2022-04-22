@@ -33,21 +33,16 @@ dependencies {
     implementation android_ui.appcompat
     implementation android_ui.material
 
-    api project(path: ':middle:config')
-    api project(path: ':middle:music')
-    api project(path: ':middle:roomkit')
-    api project(path: ':middle:pk')
+    api project(rcLocalLib.config)
+    api project(rcLocalLib.music)
+    api project(rcLocalLib.roomkit)
+    api project(rcLocalLib.pk)
 
     Properties properties = new Properties()
     File propertyFile = new File(rootDir.getAbsolutePath() + "/local.properties")
     properties.load(propertyFile.newDataInputStream())
-    if (properties.get("VOICE_ROOM_REMOTE_DEPENDENCE").toBoolean()) {
-        api "cn.rongcloud.sdk:voiceroom_lib:$voiceroomLib"
-    } else {
-        println("------------------------>>>>use local module")
-        api project(path: ':RCVoiceRoom')
-    }
 
+    api "cn.rongcloud.sdk:voiceroom_lib:$voiceroomLib"
     implementation "cn.rongcloud.sdk:im_lib:$imLib"
     implementation "cn.rongcloud.sdk:im_kit:$imLib"
     implementation "cn.rongcloud.sdk:call_lib:$rtcLib"

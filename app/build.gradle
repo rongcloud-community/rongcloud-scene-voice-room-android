@@ -23,12 +23,21 @@ android {
                 arguments += [AROUTER_MODULE_NAME: project.getName()]
             }
         }
+
     }
 
     buildTypes {
         debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField("String", "APP_KEY", "\"pvxdm17jpw7ar\"")
+            buildConfigField("String", "UM_APP_KEY", "\"60c062bf8d6cd512500c78ed\"")
+            buildConfigField("String", "BASE_SERVER_ADDRES", "\"https://rcrtc-api.rongcloud.net/\"")
+            buildConfigField("String", "BUGLY_ID", "\"f3c227951e\"")
+            buildConfigField("String", "MH_APP_KEY", "\"cbb3a9f01d9fa52c0367ef8703f64327\"")
+            buildConfigField("String", "BUSINESS_TOKEN", "\"vStHYPdrQoImm-7Ur0ks1g\"")
+            buildConfigField("Boolean", "INTERIAL", "false")// 区分国内/国际 国内环境不显示UI 选择地区
+
         }
         release {
             minifyEnabled false
@@ -47,9 +56,11 @@ dependencies {
     implementation fileTree(includes: ['*.aar'], dir: 'libs')
     implementation android_ui.appcompat
     implementation android_ui.material
-//    annotationProcessor "com.alibaba:arouter-compiler:$arouter"
+    // 语聊房
+    implementation project(":voiceroom")
+    // 用户登录模块
+    implementation project(rcLocalLib.profile)
 
-    // common
-//    implementation project(path: ':common')
+    annotationProcessor "com.alibaba:arouter-compiler:$arouter"
 
 }

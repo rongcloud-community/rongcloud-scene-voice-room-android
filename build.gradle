@@ -89,4 +89,21 @@ ext {
     mode_live = "live"
     mode_game = "game"
     rc_busi = [mode_voice, mode_live, mode_radio, mode_call, mode_game]
+
+    rcLocalLib = [
+            // 最底层common模块
+            common : ":scene-common:common",
+            // 配置信息模块
+            config : ":scene-common:middle:config",
+            // 美狐美颜模块
+            mhui   : ":scene-common:middle:mhui",
+            // 音乐弹框模块
+            music  : ":scene-common:middle:music",
+            // pk模块
+            pk     : ":scene-common:middle:pk",
+            // 个人信息模块
+            profile: ":scene-common:middle:profile",
+            // 房间通用ui模块
+            roomkit: ":scene-common:middle:roomkit",
+    ]
 }
