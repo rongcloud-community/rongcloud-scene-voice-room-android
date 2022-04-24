@@ -23,6 +23,13 @@
         </activity>
 
         <activity android:name=".MainActivity" />
+        <!-- HIFIVE 音乐配置信息 -->
+        <meta-data
+            android:name="HIFIVE_APPID"
+            android:value="${HIFIVE_APPID}" />
+        <meta-data
+            android:name="HIFIVE_SERVERCODE"
+            android:value="${HIFIVE_SERVERCODE}" />
     </application>
 
 </manifest>
